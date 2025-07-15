@@ -1,6 +1,6 @@
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
-import { NonCustodialEscrow } from "../target/types/non_custodial_escrow";
+import { Escrow } from "../target/types/escrow";
 import {
   createMint,
   getOrCreateAssociatedTokenAccount,
@@ -10,12 +10,12 @@ import {
 } from "@solana/spl-token";
 import { SYSVAR_RENT_PUBKEY } from "@solana/web3.js";
 import NodeWallet from "@project-serum/anchor/dist/cjs/nodewallet";
-describe("non-custodial-escrow", () => {
+describe("escrow", () => {
   // Configure the client to use the local cluster.
   const provider = anchor.AnchorProvider.env();
   anchor.setProvider(provider);
 
-  const program = anchor.workspace.nonCustodialEscrow as Program<NonCustodialEscrow>;
+  const program = anchor.workspace.nonCustodialEscrow as Program<Escrow>;
 
 
   const seller = provider.wallet.publicKey;
